@@ -64,3 +64,16 @@ class AchieveImageListView(generics.ListAPIView):
     queryset = AchieveEventsImage.objects.all()
     serializer_class = AchieveEventsImageSerializer
 
+
+class SportsmenListView(generics.ListAPIView):
+    queryset = Sportsmen.objects.all()
+    serializer_class = SportsmenSerializer
+
+
+class SportsmenDetailListView(generics.RetrieveUpdateAPIView):
+    queryset = Sportsmen.objects.all()
+    serializer_class = SportsmenSerializer
+
+class PolListView(generics.ListAPIView):
+    queryset = Pol.objects.all()
+    serializer_class = PolSerialiazer

@@ -3,10 +3,11 @@ from.models import *
 
 
 class NewsSerializer(serializers.ModelSerializer):
+    news_images = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = News
-        fields = "__all__"
-
+        fields = ["id", "title", "description", "news_images"]
 
 
 class TurnirSerializer(serializers.ModelSerializer):
@@ -16,9 +17,27 @@ class TurnirSerializer(serializers.ModelSerializer):
 
 
 class SportsmenSerializer(serializers.ModelSerializer):
+    title_pol = serializers.CharField(source="pol.title", read_only=True)
+    weight_category = serializers.CharField(source="weight_category.title", read_only=True)
+
     class Meta:
         model = Sportsmen
-        fields = "__all__"
+        fields = ['name', 'title_pol','age','weight', 'image','fight', 'weight','rating_total','wins','weight_category']
+
+
+class PolSerialiazer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Pol
+        fields = ['title']
+
+
+class CategorySerialiazer(serializers.ModelSerializer):
+    sportsmen_category = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = WeightCategory
+        fields = ['id', 'title', 'weight_sportsmen']
 
 
 class CoachSerializer(serializers.ModelSerializer):
@@ -34,9 +53,11 @@ class BankSerializer(serializers.ModelSerializer):
 
 
 class AchieveEventsSerializer(serializers.ModelSerializer):
+    achieve_images = serializers.StringRelatedField(many=True)
+
     class Meta:
         model = AchieveEvents
-        fields = "__all__"
+        fields = ['id', 'title', 'created_date', 'video', 'image', 'result', 'description', 'achieve_images']
 
 
 class AchieveEventsImageSerializer(serializers.ModelSerializer):

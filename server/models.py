@@ -19,7 +19,7 @@ class News(models.Model):
 
 class NewsImage(models.Model):
     image = models.FileField(upload_to='newsImage/all/')
-    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="News")
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="news_images")
 
     def __str__(self):
         return self.image.name
@@ -40,7 +40,7 @@ class AchieveEvents(models.Model):
 
 class AchieveEventsImage(models.Model):
     image = models.FileField(upload_to='achieveImage/all/')
-    achieve = models.ForeignKey(AchieveEvents, on_delete=models.CASCADE)
+    achieve = models.ForeignKey(AchieveEvents, on_delete=models.CASCADE, related_name="achieve_images")
 
     def __str__(self):
         return self.achieve.name
