@@ -86,7 +86,7 @@ class ShopCategoryListView(generics.ListAPIView):
 
 
 class ShopCategoryDetailListView(generics.RetrieveUpdateAPIView):
-    queryset = ShopCategory.objects.all()
+    queryset = ShopCategory.objects.all()[::1]
     serializer_class = ShopCategorySerializer
 
 

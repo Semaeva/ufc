@@ -81,6 +81,8 @@ class ShopCategorySerializer(serializers.ModelSerializer):
 
 
 class ShopThingsSerializer(serializers.ModelSerializer):
+    shop_categoty = serializers.CharField(source="shop_categoty.title", read_only=True)
+
     class Meta:
         model = ShopThing
         fields = "__all__"

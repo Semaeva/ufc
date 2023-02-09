@@ -41,6 +41,7 @@ class AchieveEvents(models.Model):
         return self.title
 
     class Meta:
+        ordering = ['-created_date']
         verbose_name_plural = "Прошедшие турниры"
         verbose_name = "Прошедшие турниры"
 

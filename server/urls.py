@@ -19,7 +19,7 @@ urlpatterns = [
     path('category/list/', ShopCategoryListView.as_view()),
     path('category/detail/<int:pk>', ShopCategoryDetailListView.as_view()),
     path('shopping/list/', ShopThingsListView.as_view()),
-    path('shopping/detail/<int:pk>/', ShopThingsDetailListView.as_view()),
+    path('shopping/detail/<int:id>/', ShopThingsDetailListView.as_view()),
     # path('news_image/list/', NewsImageListView.as_view()),
     # path('achievements_image/list/', AchieveImageListView.as_view()),
 ]
