@@ -37,6 +37,13 @@ class AchieveEvents(models.Model):
     image = models.ImageField('achieve/main/')
     video = EmbedVideoField(blank=True, null=True)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Прошедшие турниры"
+        verbose_name = "Прошедшие турниры"
+
 
 class AchieveEventsImage(models.Model):
     image = models.FileField(upload_to='achieveImage/all/')
@@ -143,8 +150,34 @@ class Bank(models.Model):
         verbose_name = "банк"
 
 
-# class Shop(models.Model):
-#     title = models.CharField(max_length=250)
-#     size = models.ForeignKey('Size', on_delete=models.CASCADE, related_name='shop_size')
+class ShopCategory(models.Model):
+    title = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Категории одежды"
+        verbose_name = "Категории одежды"
+
+
+class ShopThing(models.Model):
+    title = models.CharField(max_length=250)
+    shop_categoty = models.ForeignKey(ShopCategory, on_delete=models.CASCADE, related_name="shop_things")
+    image = models.ImageField(upload_to="shop_things/")
+    price = models.FloatField()
+    size_s = models.BooleanField(default=True)
+    size_m = models.BooleanField(default=True)
+    size_l = models.BooleanField(default=True)
+    size_xl = models.BooleanField(default=True)
+    size_xxl = models.BooleanField(default=True)
+    size_xxxl = models.BooleanField(default=True)
+    description = models.TextField(default='')
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = "Товар"
+        verbose_name = "Товар"
 

@@ -71,3 +71,17 @@ class NewsImageSerializer(serializers.ModelSerializer):
         model = NewsImage
         fields = "__all__"
 
+
+class ShopCategorySerializer(serializers.ModelSerializer):
+    shop_things = serializers.StringRelatedField(many=True)
+
+    class Meta:
+        model = ShopCategory
+        fields = ['id', 'title', 'shop_things']
+
+
+class ShopThingsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShopThing
+        fields = "__all__"
+

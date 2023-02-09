@@ -74,6 +74,29 @@ class SportsmenDetailListView(generics.RetrieveUpdateAPIView):
     queryset = Sportsmen.objects.all()
     serializer_class = SportsmenSerializer
 
+
 class PolListView(generics.ListAPIView):
     queryset = Pol.objects.all()
     serializer_class = PolSerialiazer
+
+
+class ShopCategoryListView(generics.ListAPIView):
+    queryset = ShopCategory.objects.all()
+    serializer_class = ShopCategorySerializer
+
+
+class ShopCategoryDetailListView(generics.RetrieveUpdateAPIView):
+    queryset = ShopCategory.objects.all()
+    serializer_class = ShopCategorySerializer
+
+
+class ShopThingsListView(generics.ListAPIView):
+    queryset = ShopThing.objects.all()
+    serializer_class = ShopThingsSerializer
+
+
+class ShopThingsDetailListView(generics.RetrieveUpdateAPIView):
+    lookup_field = 'id'
+    queryset = ShopThing.objects.all()
+    serializer_class = ShopThingsSerializer
+
