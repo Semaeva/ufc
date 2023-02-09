@@ -55,6 +55,7 @@ class Turnir(models.Model):
     events_date = models.DateField(blank=True, null=True)
     address = models.CharField(max_length=250)
     description = models.TextField(default='')
+    image = models.ImageField(upload_to='turnir/')
 
     def __str__(self):
         return self.title
@@ -109,6 +110,7 @@ class Pol(models.Model):
 class Coach(models.Model):
     name = models.CharField(max_length=100)
     info = models.TextField(default='')
+    image = models.ImageField(upload_to='coaches/')
 
     def __str__(self):
         return self.name
@@ -139,5 +141,10 @@ class Bank(models.Model):
     class Meta:
         verbose_name_plural = "банки"
         verbose_name = "банк"
+
+
+# class Shop(models.Model):
+#     title = models.CharField(max_length=250)
+#     size = models.ForeignKey('Size', on_delete=models.CASCADE, related_name='shop_size')
 
 
